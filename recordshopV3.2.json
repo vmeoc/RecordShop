@@ -1,0 +1,336 @@
+{
+  "catalogItemId" : "bb480d8f-3e14-4a48-9a18-90bca8144299",
+  "requestedFor" : null,
+  "businessGroupId" : "8e7189ae-b875-40c7-a816-4afed38e0a55",
+  "description" : "Demo",
+  "reasons" : "Demo",
+  "data" : {
+    "Database" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*Database",
+      "data" : {
+        "_allocation" : {
+          "componentTypeId" : "com.vmware.csp.iaas.blueprint.service",
+          "componentId" : null,
+          "classId" : "Infrastructure.Compute.Machine.Allocation",
+          "typeFilter" : null,
+          "data" : {
+            "machines" : [ {
+              "componentTypeId" : "com.vmware.csp.iaas.blueprint.service",
+              "componentId" : null,
+              "classId" : "Infrastructure.Compute.Machine.Allocation.Machine",
+              "typeFilter" : null,
+              "data" : {
+                "machine_id" : "",
+                "nics" : [ {
+                  "componentTypeId" : "com.vmware.csp.iaas.blueprint.service",
+                  "componentId" : null,
+                  "classId" : "Infrastructure.Compute.Machine.Nic",
+                  "typeFilter" : null,
+                  "data" : {
+                    "address" : "",
+                    "assignment_type" : "Static",
+                    "external_address" : "",
+                    "id" : null,
+                    "load_balancing" : null,
+                    "network" : null,
+                    "network_profile" : null
+                  }
+                } ]
+              }
+            } ]
+          }
+        },
+        "_cluster" : 1,
+        "_hasChildren" : true,
+        "cpu" : 2,
+        "datacenter_location" : null,
+        "description" : null,
+        "disks" : [ {
+          "componentTypeId" : "com.vmware.csp.iaas.blueprint.service",
+          "componentId" : null,
+          "classId" : "Infrastructure.Compute.Machine.MachineDisk",
+          "typeFilter" : null,
+          "data" : {
+            "capacity" : 100,
+            "custom_properties" : null,
+            "id" : 1469698468921,
+            "initial_location" : "",
+            "is_clone" : true,
+            "label" : "Hard disk 1",
+            "storage_reservation_policy" : "",
+            "userCreated" : false,
+            "volumeId" : 0
+          }
+        } ],
+        "guest_customization_specification" : "Linux",
+        "machine_prefix" : null,
+        "max_network_adapters" : -1,
+        "max_per_user" : 0,
+        "max_volumes" : 60,
+        "memory" : 4096,
+        "nics" : null,
+        "reservation_policy" : {
+          "componentId" : null,
+          "classId" : "Infrastructure.Reservation.Policy.ComputeResource",
+          "id" : "Development",
+          "label" : "Development"
+        },
+        "security_groups" : [ ],
+        "security_tags" : null,
+        "storage" : 100
+      }
+    },
+    "Extensibility.Lifecycle.Properties.CloneWorkflow.CustomizeMachine" : "*",
+    "Extensibility.Lifecycle.Properties.CloneWorkflow.InitialPowerOn" : "*",
+    "Extensibility.Lifecycle.Properties.VMPSMasterWorkflow32.BuildingMachine" : "*",
+    "Extensibility.Lifecycle.Properties.VMPSMasterWorkflow32.Disposing" : "*",
+    "Extensibility.Lifecycle.Properties.VMPSMasterWorkflow32.Expired" : "*",
+    "Extensibility.Lifecycle.Properties.VMPSMasterWorkflow32.MachineProvisioned" : "*",
+    "Extensibility.Lifecycle.Properties.VMPSMasterWorkflow32.Off" : "*",
+    "Extensibility.Lifecycle.Properties.VMPSMasterWorkflow32.On" : "*",
+    "Extensibility.Lifecycle.Properties.VMPSMasterWorkflow32.Rebooting" : "*",
+    "Extensibility.Lifecycle.Properties.VMPSMasterWorkflow32.Requested" : "*",
+    "Extensibility.Lifecycle.Properties.VMPSMasterWorkflow32.UnprovisionMachine" : "*",
+    "Install_vRops_EP_Agent_depuis_Web_Server_1" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*Install_vRops_EP_Agent_depuis_Web_Server_1",
+      "data" : {
+        "_hasChildren" : false
+      }
+    },
+    "Install_vRops_EP_Agent_depuis_Web_Server_2" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*Install_vRops_EP_Agent_depuis_Web_Server_2",
+      "data" : {
+        "_hasChildren" : false
+      }
+    },
+    "LAM-Java" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*LAM-Java",
+      "data" : {
+        "_allocation" : {
+          "componentTypeId" : "com.vmware.csp.iaas.blueprint.service",
+          "componentId" : null,
+          "classId" : "Infrastructure.Compute.Machine.Allocation",
+          "typeFilter" : null,
+          "data" : {
+            "machines" : [ {
+              "componentTypeId" : "com.vmware.csp.iaas.blueprint.service",
+              "componentId" : null,
+              "classId" : "Infrastructure.Compute.Machine.Allocation.Machine",
+              "typeFilter" : null,
+              "data" : {
+                "machine_id" : "",
+                "nics" : [ {
+                  "componentTypeId" : "com.vmware.csp.iaas.blueprint.service",
+                  "componentId" : null,
+                  "classId" : "Infrastructure.Compute.Machine.Nic",
+                  "typeFilter" : null,
+                  "data" : {
+                    "address" : "",
+                    "assignment_type" : "Static",
+                    "external_address" : "",
+                    "id" : null,
+                    "load_balancing" : null,
+                    "network" : null,
+                    "network_profile" : null
+                  }
+                } ]
+              }
+            } ]
+          }
+        },
+        "_cluster" : 1,
+        "_hasChildren" : true,
+        "cpu" : 2,
+        "datacenter_location" : null,
+        "description" : null,
+        "disks" : [ {
+          "componentTypeId" : "com.vmware.csp.iaas.blueprint.service",
+          "componentId" : null,
+          "classId" : "Infrastructure.Compute.Machine.MachineDisk",
+          "typeFilter" : null,
+          "data" : {
+            "capacity" : 100,
+            "custom_properties" : null,
+            "id" : 1469698452970,
+            "initial_location" : "",
+            "is_clone" : true,
+            "label" : "Hard disk 1",
+            "storage_reservation_policy" : "",
+            "userCreated" : false,
+            "volumeId" : 0
+          }
+        } ],
+        "guest_customization_specification" : "Linux",
+        "max_network_adapters" : -1,
+        "max_per_user" : 0,
+        "max_volumes" : 60,
+        "memory" : 4096,
+        "nics" : null,
+        "reservation_policy" : null,
+        "security_groups" : [ ],
+        "security_tags" : null,
+        "storage" : 100
+      }
+    },
+    "LabvRA" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*LabvRA",
+      "data" : {
+        "_hasChildren" : false
+      }
+    },
+    "MYSQL" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*MYSQL",
+      "data" : {
+        "DB_PORT" : "3306",
+        "DB_ROOT_PASSWORD" : "********",
+        "DB_ROOT_USERNAME" : "root",
+        "_hasChildren" : true
+      }
+    },
+    "On-Demand_Load_Balancer_1" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*On-Demand_Load_Balancer_1",
+      "data" : {
+        "_hasChildren" : false,
+        "description" : null,
+        "edge" : null,
+        "edge_nic_index" : null,
+        "vip_address" : null
+      }
+    },
+    "RecordShopDB" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*RecordShopDB",
+      "data" : {
+        "DB_NAME" : "recordshop",
+        "DB_PASSWORD" : "vmware",
+        "DB_USERNAME" : "recordshop",
+        "INIT_DB_PASSWORD" : "vmware",
+        "INIT_DB_USERNAME" : "root",
+        "_hasChildren" : false
+      }
+    },
+    "RecordShopWeb" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*RecordShopWeb",
+      "data" : {
+        "DB_PORT" : "3306",
+        "DRIVER_CLASS_NAME" : "com.mysql.jdbc.Driver",
+        "JDBC_URL" : {
+          "componentTypeId" : "com.vmware.csp.component.software.service",
+          "componentId" : null,
+          "classId" : "artifactDetail",
+          "typeFilter" : null,
+          "data" : {
+            "url" : "http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar"
+          }
+        },
+        "JSTL_JAR_URL" : {
+          "componentTypeId" : "com.vmware.csp.component.software.service",
+          "componentId" : null,
+          "classId" : "artifactDetail",
+          "typeFilter" : null,
+          "data" : {
+            "url" : "http://repo2.maven.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar"
+          }
+        },
+        "MAX_ACTIVE_CONNECTIONS" : "10",
+        "MAX_IDLE_CONNECTIONS" : "5",
+        "MAX_WAIT" : "10000",
+        "MYSQL_JDBC_URL" : {
+          "componentTypeId" : null,
+          "componentId" : null,
+          "classId" : "DEFAULT",
+          "typeFilter" : null,
+          "data" : {
+            "url" : "http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar"
+          }
+        },
+        "REMOVE_ABANDONED_CONNECTIONS" : "true",
+        "RESOURCE_NAME" : "RecordShop",
+        "STANDARD_JAR_URL" : {
+          "componentTypeId" : "com.vmware.csp.component.software.service",
+          "componentId" : null,
+          "classId" : "artifactDetail",
+          "typeFilter" : null,
+          "data" : {
+            "url" : "http://repo2.maven.org/maven2/taglibs/standard/1.1.2/standard-1.1.2.jar"
+          }
+        },
+        "TOMCAT_INSTALL_PATH" : "/opt/tomcat",
+        "_hasChildren" : false
+      }
+    },
+    "TOMCAT" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*TOMCAT",
+      "data" : {
+        "CATALINA_OPTS" : "-Xms512m -Xmx512m",
+        "JAVA_DOWNLOAD_URL" : "http://download.oracle.com/otn-pub/java/jdk/8u65-b17/jdk-8u65-linux-x64.tar.gz",
+        "JAVA_INSTALL_PATH" : "/opt",
+        "TOMCAT_DOWNLOAD_URL" : {
+          "componentTypeId" : "com.vmware.csp.component.software.service",
+          "componentId" : null,
+          "classId" : "artifactDetail",
+          "typeFilter" : null,
+          "data" : {
+            "url" : "http://p-vin-ws-01.showroom.local/packages/apache-tomcat-8.0.36.tar.gz"
+          }
+        },
+        "TOMCAT_HTTP_PORT" : "8080",
+        "TOMCAT_INSTALL_PATH" : "/opt/tomcat",
+        "_hasChildren" : true
+      }
+    },
+    "_archiveDays" : 5,
+    "_leaseDays" : 1,
+    "_number_of_instances" : 1,
+    "vince_Web_security_profile" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*vince_Web_security_profile",
+      "data" : {
+        "_hasChildren" : false,
+        "description" : null
+      }
+    },
+    "vince_sql_security_profile" : {
+      "componentTypeId" : "com.vmware.csp.component.cafe.composition",
+      "componentId" : null,
+      "classId" : "Blueprint.Component.Declaration",
+      "typeFilter" : "BookstoreV32*vince_sql_security_profile",
+      "data" : {
+        "_hasChildren" : false,
+        "description" : null
+      }
+    }
+  },
+  "type" : "com.vmware.vcac.catalog.domain.request.CatalogItemProvisioningRequest"
+}

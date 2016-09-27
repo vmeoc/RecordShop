@@ -1,0 +1,2 @@
+cd /opt/tomcat/webapps/recordshop
+ git checkout 71a9cdd819cf0dfe0c1802b9d12aeec4b697cd92
