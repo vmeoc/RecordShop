@@ -1,0 +1,200 @@
+'@type': "SoftwareComponentType"
+createdDate: "2016-05-30T14:41:31.192Z"
+lastUpdated: "2016-09-15T19:55:21.390Z"
+id: "Software.LAMJAVADatabaseExampleVMwareSample"
+name: "RecordShop Database Setup"
+description: "An example MySql Database Configuration for a LAM-Java stack.  This\
+  \ DB has sample data from a Record Shop."
+publishStatus: "PUBLISHED"
+publishStatusName: "Published"
+schema:
+  fields:
+  - id: "INIT_DB_PASSWORD"
+    label: "INIT_DB_PASSWORD"
+    description: "MySql root user password"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "secureString"
+            value: ""
+      - type: "encrypted"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "DB_USERNAME"
+    label: "DB_USERNAME"
+    description: "Database username"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "recordshop"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "INIT_DB_USERNAME"
+    label: "INIT_DB_USERNAME"
+    description: "MySql root username"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "root"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "host"
+    label: "Container"
+    description: ""
+    dataType:
+      type: "ref"
+      componentTypeId: "com.vmware.csp.component.software.service"
+      classId: "softwareResourceType"
+      typeFilter: "Software.MYSQLDATABASEVMwareSamplecopyMariaDB"
+      label: "MYSQL DATABASE - VMware Sample - MariaDB"
+    state:
+      dependencies: []
+      facets:
+      - type: "visible"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: false
+      - type: "internal"
+        value:
+          type: "constantClause"
+          value:
+            type: "boolean"
+            value: true
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "DB_NAME"
+    label: "DB_NAME"
+    description: "Database name"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "recordshop"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "DB_PASSWORD"
+    label: "DB_PASSWORD"
+    description: "Database password"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "secureString"
+            value: ""
+      - type: "encrypted"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+containerFieldId: "host"
+lifecycleTasks:
+- createdDate: "2016-05-30T14:41:31.193Z"
+  lastUpdated: "2016-09-15T19:55:21.390Z"
+  script:
+    scriptContent: "#!/bin/bash\n#\n# Copyright 2011-2015 VMware, Inc. All rights\
+      \ reserved. \n#\n# ==============================================================================================\n\
+      # LAM-Java Database Example - INSTALLATION script\n#\n## INPUT PROPERTIES:\n\
+      # Property Name                                       Type         Description\n\
+      # DB_NAME        String       Database name\n# DB_PASSWORD        String   \
+      \    Database password\n# DB_USERNAME       String       Database username\n\
+      # INIT_DB_PASSWORD  String       MySql root user password\n# INIT_DB_USERNAME\
+      \  String       MySql root user username\n#\n## OUTPUT PROPERTIES:\n# n/a\n\
+      # ==============================================================================================\n\
+      \ \n##### Variables from Script properties ####\ndb_name=${DB_NAME}\ndb_password=${DB_PASSWORD}\n\
+      db_username=${DB_USERNAME}\ninit_db_password=${INIT_DB_PASSWORD}\ninit_db_username=${INIT_DB_USERNAME}\n\
+      \necho \"####### BIND VARIABLES #######\"\necho 'db_name'=$db_name\necho 'db_username'=$db_username\n\
+      echo 'init_db_username'=$init_db_username\necho \"##############################\"\
+      \n#####\n\n##### Write MySQL Script to create DB\n\ncat > $db_name.sql <<EOF\n\
+      \ncreate database if not exists recordshop;\nuse recordshop;\n\ndrop table if\
+      \ exists records;\ncreate table records (\n   id     int,\n   title  varchar(100),\n\
+      \   author varchar(50),\n   year   int,\n   price  float,\n   qty    int,\n\
+      \   primary key (id));\n\ninsert into records values (1001, 'Led Zeppelin IV',\
+      \ 'Led Zeppelin', 1971, 11.11, 11);\ninsert into records values (1002, 'Rumours',\
+      \ 'Fleetwood Mac', 1977, 22.22, 22);\ninsert into records values (1003, 'Songs\
+      \ in the Key of Life', 'Stevie Wonder', 1976, 33.33, 33);\ninsert into records\
+      \ values (1004, 'The Rise and Fall of Ziggy Stardust and the Spiders from Mars',\
+      \ 'David Bowie', 1972, 44.44, 44);\ninsert into records values (1005, 'The Wall',\
+      \ 'Pink Floyd', 1979, 55.55, 55);\n\nGRANT ALL PRIVILEGES ON recordshop.* To\
+      \ '$db_username' IDENTIFIED BY '$db_password';\n\nEOF\n\n##### Run Script\n\n\
+      mysql -u$init_db_username -p$init_db_password < $db_name.sql"
+    isRebootAfter: false
+    scriptTypeId: "Bash"
+  taskDescriptorRef:
+    id: "INSTALL"
+    label: "Install"

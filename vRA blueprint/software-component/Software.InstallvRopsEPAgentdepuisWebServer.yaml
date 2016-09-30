@@ -1,0 +1,52 @@
+'@type': "SoftwareComponentType"
+createdDate: "2016-09-02T14:02:02.988Z"
+lastUpdated: "2016-09-02T14:02:03.058Z"
+id: "Software.InstallvRopsEPAgentdepuisWebServer"
+name: "Install vRops EP Agent depuis Web Server"
+description: "Recupere le script d'install sur le serveur Web et installe l'EP agent"
+publishStatus: "PUBLISHED"
+publishStatusName: "Published"
+schema:
+  fields:
+  - id: "host"
+    label: "Container"
+    description: ""
+    dataType:
+      type: "ref"
+      componentTypeId: "com.vmware.csp.iaas.blueprint.service"
+      classId: "Infrastructure.Machine.Schema"
+      label: "Machine"
+    state:
+      dependencies: []
+      facets:
+      - type: "visible"
+        value:
+          type: "constantClause"
+          value:
+            type: "boolean"
+            value: false
+      - type: "internal"
+        value:
+          type: "constantClause"
+          value:
+            type: "boolean"
+            value: true
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+containerFieldId: "host"
+lifecycleTasks:
+- createdDate: "2016-09-02T14:02:02.988Z"
+  lastUpdated: "2016-09-02T14:02:02.988Z"
+  script:
+    scriptContent: "#!/bin/bash\n\n\nyum install -y wget\n\ncd /tmp\nwget http://p-vin-ws-01.showroom.local/Alex/EPops-Agents/Alex_Script_Install_EP.sh\n\
+      \nchmod 777 Alex_Script_Install_EP.sh\n./Alex_Script_Install_EP.sh\n"
+    isRebootAfter: false
+    scriptTypeId: "Bash"
+  taskDescriptorRef:
+    id: "INSTALL"
+    label: "Install"

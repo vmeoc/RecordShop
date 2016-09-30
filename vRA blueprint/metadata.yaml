@@ -1,0 +1,40 @@
+name: "auto-generated-pkg-54f56393-30eb-4272-9e39-72b7e9f48f73"
+productVersion: "7.1.0-SNAPSHOT"
+data:
+- locator: "composite-blueprint/BookstoreV32.yaml"
+  name: "Recordshop V3.2"
+  description: "Recordshop V3.2"
+  dependencies:
+  - "software-component/Software.MYSQLDATABASEVMwareSamplecopyMariaDB.yaml"
+  - "software-component/Software.TomcatVMwareSampleV2.yaml"
+  - "software-component/Software.DukesBankApp.yaml"
+  - "software-component/Software.InstallvRopsEPAgentdepuisWebServer.yaml"
+  - "software-component/Software.LAMJAVADatabaseExampleVMwareSample.yaml"
+- locator: "software-component/Software.LAMJAVADatabaseExampleVMwareSample.yaml"
+  name: "RecordShop Database Setup"
+  description: "An example MySql Database Configuration for a LAM-Java stack.  This\
+    \ DB has sample data from a Record Shop."
+  dependencies:
+  - "software-component/Software.MYSQLDATABASEVMwareSamplecopyMariaDB.yaml"
+- locator: "software-component/Software.MYSQLDATABASEVMwareSamplecopyMariaDB.yaml"
+  name: "MYSQL DATABASE - VMware Sample - MariaDB"
+  description: "Developed by VMware Inc, this software component is to install MySQL\
+    \ server 5.6.28.\nModified by Vince on the 13th of June 16"
+- locator: "software-component/Software.TomcatVMwareSampleV2.yaml"
+  name: "Recordshop - Tomcat install"
+  description: "Developed by VMware Inc, this software component is to install JBoss\
+    \ 7.1 Enterprise Application Platform. - modified  by Vince on the 15 of June\
+    \ 16\n\nTomcat is an open-source web server developed by the Apache Software Foundation\
+    \ (ASF). Tomcat implements several Java EE specifications including Java Servlet,\
+    \ JavaServer Pages (JSP), Java EL, and WebSocket, and provides a \"pure Java\"\
+    \ HTTP web server environment for Java code to run in."
+- locator: "software-component/Software.DukesBankApp.yaml"
+  name: "RecordShop Web Application Setup"
+  description: "Sample Application that displays a simple Record Store Inventory to\
+    \ demonstrate a connection to a MySql Database"
+  dependencies:
+  - "software-component/Software.TomcatVMwareSampleV2.yaml"
+- locator: "software-component/Software.InstallvRopsEPAgentdepuisWebServer.yaml"
+  name: "Install vRops EP Agent depuis Web Server"
+  description: "Recupere le script d'install sur le serveur Web et installe l'EP agent"
+exportTime: "2016-09-30T10:50:00.537Z"

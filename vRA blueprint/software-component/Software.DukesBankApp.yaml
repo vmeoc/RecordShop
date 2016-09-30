@@ -1,0 +1,580 @@
+'@type': "SoftwareComponentType"
+createdDate: "2016-05-30T14:41:31.416Z"
+lastUpdated: "2016-09-15T19:55:51.703Z"
+id: "Software.DukesBankApp"
+name: "RecordShop Web Application Setup"
+description: "Sample Application that displays a simple Record Store Inventory to\
+  \ demonstrate a connection to a MySql Database"
+publishStatus: "PUBLISHED"
+publishStatusName: "Published"
+schema:
+  fields:
+  - id: "MAX_ACTIVE_CONNECTIONS"
+    label: "MAX_ACTIVE_CONNECTIONS"
+    description: "The maximum number of connections that can be allocated from this\
+      \ pool at the same time"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "10"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "DB_SERVER"
+    label: "DB_SERVER"
+    description: "Database server"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: ""
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "DB_PORT"
+    label: "DB_PORT"
+    description: "Database port"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: ""
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "DB_NAME"
+    label: "DB_NAME"
+    description: "Database name"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: ""
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "JSTL_JAR_URL"
+    label: "JSTL_JAR_URL"
+    description: "This example uses JSTL Tag Library Jars"
+    dataType:
+      type: "complex"
+      componentTypeId: "com.vmware.csp.component.software.service"
+      classId: "artifactDetail"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "complex"
+            componentTypeId: "com.vmware.csp.component.software.service"
+            classId: "artifactDetail"
+            values:
+              entries:
+              - key: "url"
+                value:
+                  type: "string"
+                  value: "http://repo2.maven.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "MAX_WAIT"
+    label: "MAX_WAIT"
+    description: "The maximum number of milliseconds that the pool will wait (when\
+      \ there are no available connections) for a connection to be returned before\
+      \ throwing an exception"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "10000"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "JDBC_URL"
+    label: "JDBC_URL"
+    description: "Download URL for JDBC Driver jar"
+    dataType:
+      type: "complex"
+      componentTypeId: "com.vmware.csp.component.software.service"
+      classId: "artifactDetail"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "complex"
+            componentTypeId: "com.vmware.csp.component.software.service"
+            classId: "artifactDetail"
+            values:
+              entries:
+              - key: "url"
+                value:
+                  type: "string"
+                  value: "http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "DB_USERNAME"
+    label: "DB_USERNAME"
+    description: "Database username"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: ""
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "DRIVER_CLASS_NAME"
+    label: "DRIVER_CLASS_NAME"
+    description: "Fully qualified Java class name of the JDBC driver to be used"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "com.mysql.jdbc.Driver"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "REMOVE_ABANDONED_CONNECTIONS"
+    label: "REMOVE_ABANDONED_CONNECTIONS"
+    description: "true or false: whether to remove abandoned connections from the\
+      \ pool"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "true"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "MAX_IDLE_CONNECTIONS"
+    label: "MAX_IDLE_CONNECTIONS"
+    description: "The maximum number of connections that can sit idle in this pool\
+      \ at the same time"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "5"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "host"
+    label: "Container"
+    description: ""
+    dataType:
+      type: "ref"
+      componentTypeId: "com.vmware.csp.component.software.service"
+      classId: "softwareResourceType"
+      typeFilter: "Software.TomcatVMwareSampleV2"
+      label: "Tomcat - VMware Sample V2"
+    state:
+      dependencies: []
+      facets:
+      - type: "visible"
+        value:
+          type: "constantClause"
+          value:
+            type: "boolean"
+            value: false
+      - type: "internal"
+        value:
+          type: "constantClause"
+          value:
+            type: "boolean"
+            value: true
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "TOMCAT_INSTALL_PATH"
+    label: "TOMCAT_INSTALL_PATH"
+    description: "Where Tomcat is installed on VM"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "/opt/tomcat"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "STANDARD_JAR_URL"
+    label: "STANDARD_JAR_URL"
+    description: "This example uses JSTL Tag Library Jars"
+    dataType:
+      type: "complex"
+      componentTypeId: "com.vmware.csp.component.software.service"
+      classId: "artifactDetail"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "complex"
+            componentTypeId: "com.vmware.csp.component.software.service"
+            classId: "artifactDetail"
+            values:
+              entries:
+              - key: "url"
+                value:
+                  type: "string"
+                  value: "http://repo2.maven.org/maven2/taglibs/standard/1.1.2/standard-1.1.2.jar"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "RESOURCE_NAME"
+    label: "RESOURCE_NAME"
+    description: "Connection Resource Name"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: "RecordShop"
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+  - id: "DB_PASSWORD"
+    label: "DB_PASSWORD"
+    description: "Database password"
+    dataType:
+      type: "primitive"
+      typeId: "STRING"
+    state:
+      dependencies: []
+      facets:
+      - type: "defaultValue"
+        value:
+          type: "constant"
+          value:
+            type: "string"
+            value: ""
+      - type: "mandatory"
+        value:
+          type: "constant"
+          value:
+            type: "boolean"
+            value: true
+    isMultiValued: false
+containerFieldId: "host"
+lifecycleTasks:
+- createdDate: "2016-05-30T14:41:31.424Z"
+  lastUpdated: "2016-09-15T19:55:51.703Z"
+  script:
+    scriptContent: "#!/bin/bash\n#\n# Copyright 2011-2015 VMware, Inc. All rights\
+      \ reserved. \n#\n# ==============================================================================================\n\
+      # LAM-Java MySQL Web Application Example - CONFIGURATION script\n#\n## INPUT\
+      \ PROPERTIES:\n# Property Name                                       Type  \
+      \       Description\n# JDBC_URL        Content    Download URL for JDBC Driver\
+      \ jar\n# JSTL_JAR_URL        Content    This example uses JSTL Tag Library Jars\n\
+      # STANDARD_JAR_URL        Content    This example uses JSTL Tag Library Jars\n\
+      # TOMCAT_INSTALL_PATH   String  Where Tomcat is installed on VM\n# MAX_ACTIVE_CONNECTIONS\
+      \ String The maximum number of connections that can be allocated from this pool\
+      \ at the same time\n# MAX_IDLE_CONNECTIONS String The maximum number of connections\
+      \ that can sit idle in this pool at the same time\n# MAX_WAIT String The maximum\
+      \ number of milliseconds that the pool will wait (when there are no available\
+      \ connections) for a connection to be returned before throwing an exception\n\
+      # REMOVE_ABANDONED_CONNECTIONS String true or false: whether to remove abandoned\
+      \ connections from the pool\n# DB_USERNAME  String  Database username \n# DB_PASSWORD\
+      \  String  Database password\n# DB_NAME      String  Database name\n# DB_PORT\
+      \      String  Database port\n# DB_SERVER    String  Database hostname/IP\n\
+      # DRIVER_CLASS_NAME String Fully qualified Java class name of the JDBC driver\
+      \ to be used\n# RESOURCE_NAME     String Resource Connection Name\n#\n## OUTPUT\
+      \ PROPERTIES:\n# n/a\n# ==============================================================================================\n\
+      \ \n##### Variables from Script properties ####\njdbc_url=${JDBC_URL}\njstl_jar_url=${JSTL_JAR_URL}\n\
+      standard_jar_url=${STANDARD_JAR_URL}\ntomcat_install_path=${TOMCAT_INSTALL_PATH}\n\
+      max_active_connections=${MAX_ACTIVE_CONNECTIONS}\nmax_idle_connections=${MAX_IDLE_CONNECTIONS}\n\
+      max_wait=${MAX_WAIT}\nremove_abandoned_connections=${REMOVE_ABANDONED_CONNECTIONS}\n\
+      db_username=${DB_USERNAME}\ndb_password=${DB_PASSWORD}\ndb_name=${DB_NAME}\n\
+      db_port=${DB_PORT}\ndb_server=${DB_SERVER}\ndriver_class_name=${DRIVER_CLASS_NAME}\n\
+      resource_name=${RESOURCE_NAME}\n\n\necho \"####### BIND VARIABLES #######\"\n\
+      echo 'tomcat_install_path'=$tomcat_install_path\necho 'max_active_connections'=$max_active_connections\n\
+      echo 'max_idle_connections'=$max_idle_connections\necho 'max_wait'=$max_wait\n\
+      echo 'remove_abandoned_connections'=$remove_abandoned_connections\necho 'db_username'=$db_username\n\
+      echo 'db_name'=$db_name\necho 'db_port'=$db_port\necho 'db_server'=$db_server\n\
+      echo 'driver_class_name'=$driver_class_name\necho 'resource_name'=$resource_name\n\
+      echo \"##############################\"\n#####\n\n# Setting environment variable\n\
+      set -e\nexport PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$JAVA_HOME/bin\n\
+      \n##### Configure JDNI Connector \n\n# First create the Resource in a separate\
+      \ file\n\ncat > tempResource <<EOF\n  <Resource name=\"jdbc/$resource_name\"\
+      \ auth=\"Container\" type=\"javax.sql.DataSource\"\n     maxActive=\"$max_active_connections\"\
+      \ maxIdle=\"$max_idle_connections\" maxWait=\"$max_wait\" removeAbandoned=\"\
+      $remove_abandoned_connections\"\n     username=\"$db_username\" password=\"\
+      $db_password\" driverClassName=\"$driver_class_name\"\n     url=\"jdbc:mysql://$db_server:$db_port/$db_name\"\
+      \ />\nEOF\n\n# Modify the file, creating a backup\nline=\"$(grep -n '<\\/GlobalNamingResources'\
+      \ $tomcat_install_path/conf/server.xml | cut -d: -f 1)\"\nline=$(expr $line\
+      \ - 1)\n\n# Execute Insert\nsed -i.backup \"${line}r tempResource\" $tomcat_install_path/conf/server.xml\n\
+      \n##### Create WebApp\n\n# First create the directories\nmkdir -p $tomcat_install_path/webapps/recordshop/META-INF\n\
+      mkdir -p $tomcat_install_path/webapps/recordshop/WEB-INF\n\n# Create Resources\
+      \ \ncat > $tomcat_install_path/webapps/recordshop/META-INF/context.xml << \"\
+      EOF\"\n<?xml version='1.0' encoding='ISO-8859-1' ?>\n<Context reloadable=\"\
+      true\">\n        <ResourceLink name=\"jdbc/$resource_name\"\n        global=\"\
+      jdbc/RecordShop\"\n        type=\"javax.sql.DataSource\"\n        />\n</Context>\n\
+      EOF\n\ncat > $tomcat_install_path/webapps/recordshop/WEB-INF/web.xml << \"EOF\"\
+      \n<web-app xmlns=\"http://java.sun.com/xml/ns/j2ee\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+      \n    xsi:schemaLocation=\"http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd\"\
+      \n    version=\"2.4\">\n\n   <resource-ref>\n      <description>DB Connection\
+      \ Pool</description>\n      <res-ref-name>jdbc/$resource_name</res-ref-name>\n\
+      \      <res-type>javax.sql.DataSource</res-type>\n      <res-auth>Container</res-auth>\n\
+      \      <res-sharing-scope>Shareable</res-sharing-scope>\n   </resource-ref>\n\
+      </web-app>\nEOF\n\ncat > $tomcat_install_path/webapps/recordshop/query.jsp <<\
+      \ \"EOF\"\n<%@ taglib uri=\"http://java.sun.com/jsp/jstl/sql\" prefix=\"sql\"\
+      \ %>\n<%@ taglib uri=\"http://java.sun.com/jsp/jstl/core\" prefix=\"c\" %>\n\
+      \n<%@ page import=\"java.net.*\" %> \n\t<%\n\tString hostname, serverAddress;\n\
+      \thostname = \"error\";\n\tserverAddress = \"error\";\n\ttry {\n\n\t\tInetAddress\
+      \ inetAddress = InetAddress.getLocalHost();\n\t\tserverAddress = inetAddress.getHostAddress();\n\
+      \t\thostname = inetAddress.getHostName();\n\t} catch (UnknownHostException e)\
+      \ {\n\n\t\te.printStackTrace();\n\t}\n\t%>\n\n<sql:setDataSource var=\"ds\"\
+      \ dataSource=\"jdbc/$resource_name\" />\n<sql:query sql=\"select author, title,\
+      \ year, price, qty from records\" var=\"rs\" dataSource=\"${ds}\" />\n \n<html>\n\
+      <head><title>Sample WebApp</title></head>\n<body>\n  Server IP Address: <%=serverAddress\
+      \ %><br />\n  Server Hostname: <%=hostname %> \n  <h2>Sample MySQL Data</h2>\n\
+      \  <h3>Record Shop Inventory</h3>\n  <table border=\"1\">\n  \t<tr>\n  \t\t\
+      <td>Author</td>\n  \t\t<td>Title</td>\n  \t\t<td>Year</td>\n  \t\t<td>Quantity</td>\n\
+      \  \t\t<td>Price</td>\n  \t</tr>\n    <c:forEach var=\"row\" items=\"${rs.rows}\"\
+      >\n    <tr>\n\t\t<td>${row.author}</td>\n\t\t<td>${row.title}</td>\n\t\t<td>${row.year}</td>\n\
+      \t\t<td>${row.qty}</td>\n\t\t<td>\\$${row.price}</td>\n    </tr>\n    </c:forEach>\n\
+      \  </table>\n</body>\n</html>\nEOF\n\necho -e \"\\nDone - Creating WebApp\""
+    isRebootAfter: false
+    scriptTypeId: "Bash"
+  taskDescriptorRef:
+    id: "CONFIGURE"
+    label: "Configure"
+- createdDate: "2016-05-30T14:41:31.424Z"
+  lastUpdated: "2016-09-15T19:55:51.703Z"
+  script:
+    scriptContent: "#!/bin/bash\n#\n# Copyright 2011-2015 VMware, Inc. All rights\
+      \ reserved. \n#\n# ==============================================================================================\n\
+      # LAM-Java MySQL Web Application Example - INSTALLATION script\n#\n## INPUT\
+      \ PROPERTIES:\n# Property Name                                       Type  \
+      \       Description\n# JDBC_URL        Content    Download URL for JDBC Driver\
+      \ jar\n# JSTL_JAR_URL        Content    This example uses JSTL Tag Library Jars\n\
+      # STANDARD_JAR_URL        Content    This example uses JSTL Tag Library Jars\n\
+      # TOMCAT_INSTALL_PATH   String  Where Tomcat is installed on VM\n# MAX_ACTIVE_CONNECTIONS\
+      \ String The maximum number of connections that can be allocated from this pool\
+      \ at the same time\n# MAX_IDLE_CONNECTIONS String The maximum number of connections\
+      \ that can sit idle in this pool at the same time\n# MAX_WAIT String The maximum\
+      \ number of milliseconds that the pool will wait (when there are no available\
+      \ connections) for a connection to be returned before throwing an exception\n\
+      # REMOVE_ABANDONED_CONNECTIONS String true or false: whether to remove abandoned\
+      \ connections from the pool\n# DB_USERNAME  String  Database username \n# DB_PASSWORD\
+      \  String  Database password\n# DB_NAME      String  Database name\n# DB_PORT\
+      \      String  Database port\n# DB_SERVER    String  Database hostname/IP\n\
+      # DRIVER_CLASS_NAME String Fully qualified Java class name of the JDBC driver\
+      \ to be used\n# RESOURCE_NAME     String Resource Connection Name\n#\n## OUTPUT\
+      \ PROPERTIES:\n# n/a\n# ==============================================================================================\n\
+      \ \n##### Variables from Script properties ####\njdbc_url=${JDBC_URL}\njstl_jar_url=${JSTL_JAR_URL}\n\
+      standard_jar_url=${STANDARD_JAR_URL}\ntomcat_install_path=${TOMCAT_INSTALL_PATH}\n\
+      max_active_connections=${MAX_ACTIVE_CONNECTIONS}\nmax_idle_connections=${MAX_IDLE_CONNECTIONS}\n\
+      max_wait=${MAX_WAIT}\nremove_abandoned_connections=${REMOVE_ABANDONED_CONNECTIONS}\n\
+      db_username=${DB_USERNAME}\ndb_password=${DB_PASSWORD}\ndb_name=${DB_NAME}\n\
+      db_port=${DB_PORT}\ndb_server=${DB_SERVER}\ndriver_class_name=${DRIVER_CLASS_NAME}\n\
+      resource_name=${RESOURCE_NAME}\n\n\necho \"####### BIND VARIABLES #######\"\n\
+      echo 'tomcat_install_path'=$tomcat_install_path\necho 'max_active_connections'=$max_active_connections\n\
+      echo 'max_idle_connections'=$max_idle_connections\necho 'max_wait'=$max_wait\n\
+      echo 'remove_abandoned_connections'=$remove_abandoned_connections\necho 'db_username'=$db_username\n\
+      echo 'db_name'=$db_name\necho 'db_port'=$db_port\necho 'db_server'=$db_server\n\
+      echo 'driver_class_name'=$driver_class_name\necho 'resource_name'=$resource_name\n\
+      echo \"##############################\"\n#####\n\n# Setting environment variable\n\
+      set -e\nexport PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$JAVA_HOME/bin\n\
+      \n##### Copy MySQL Driver to lib dir\njdbc_jar=$(echo ${mysql_jdbc_url} | awk\
+      \ -F/ '{print $NF}') \necho -e \"\\nCopying ${jdbc_jar} to tomcat lib directory\
+      \ at $tomcat_install_path/lib\\n\"\ncp $jdbc_url $tomcat_install_path/lib/\n\
+      \n##### Copy JSTL Tag Libraries to lib dir\njstl_jar=$(echo ${jstl_jar_url}\
+      \ | awk -F/ '{print $NF}') \necho -e \"\\nCopying ${jstl_jar} to tomcat lib\
+      \ directory at $tomcat_install_path/lib\\n\"\ncp $jstl_jar_url $tomcat_install_path/lib/\n\
+      \nstandard_jar=$(echo ${jstl_jar_url} | awk -F/ '{print $NF}') \necho -e \"\\\
+      nCopying ${standard_jar} to tomcat lib directory at $tomcat_install_path/lib\\\
+      n\"\ncp $standard_jar_url $tomcat_install_path/lib/\n\n\necho -e \"\\nDone -\
+      \ Installation\"\n\n"
+    isRebootAfter: false
+    scriptTypeId: "Bash"
+  taskDescriptorRef:
+    id: "INSTALL"
+    label: "Install"
+- createdDate: "2016-05-30T14:41:31.419Z"
+  lastUpdated: "2016-09-15T19:55:51.703Z"
+  script:
+    scriptContent: "#!/bin/bash\n#\n# Copyright 2011-2015 VMware, Inc. All rights\
+      \ reserved. \n#\n# ==============================================================================================\n\
+      # LAM-Java MySQL Web Application Example - CONFIGURATION script\n#\n## INPUT\
+      \ PROPERTIES:\n# Property Name                                       Type  \
+      \       Description\n# JDBC_URL        Content    Download URL for JDBC Driver\
+      \ jar\n# JSTL_JAR_URL        Content    This example uses JSTL Tag Library Jars\n\
+      # STANDARD_JAR_URL        Content    This example uses JSTL Tag Library Jars\n\
+      # TOMCAT_INSTALL_PATH   String  Where Tomcat is installed on VM\n# MAX_ACTIVE_CONNECTIONS\
+      \ String The maximum number of connections that can be allocated from this pool\
+      \ at the same time\n# MAX_IDLE_CONNECTIONS String The maximum number of connections\
+      \ that can sit idle in this pool at the same time\n# MAX_WAIT String The maximum\
+      \ number of milliseconds that the pool will wait (when there are no available\
+      \ connections) for a connection to be returned before throwing an exception\n\
+      # REMOVE_ABANDONED_CONNECTIONS String true or false: whether to remove abandoned\
+      \ connections from the pool\n# DB_USERNAME  String  Database username \n# DB_PASSWORD\
+      \  String  Database password\n# DB_NAME      String  Database name\n# DB_PORT\
+      \      String  Database port\n# DB_SERVER    String  Database hostname/IP\n\
+      # DRIVER_CLASS_NAME String Fully qualified Java class name of the JDBC driver\
+      \ to be used\n# RESOURCE_NAME     String Resource Connection Name\n#\n## OUTPUT\
+      \ PROPERTIES:\n# n/a\n# ==============================================================================================\n\
+      \ \n##### Variables from Script properties ####\njdbc_url=${JDBC_URL}\njstl_jar_url=${JSTL_JAR_URL}\n\
+      standard_jar_url=${STANDARD_JAR_URL}\ntomcat_install_path=${TOMCAT_INSTALL_PATH}\n\
+      max_active_connections=${MAX_ACTIVE_CONNECTIONS}\nmax_idle_connections=${MAX_IDLE_CONNECTIONS}\n\
+      max_wait=${MAX_WAIT}\nremove_abandoned_connections=${REMOVE_ABANDONED_CONNECTIONS}\n\
+      db_username=${DB_USERNAME}\ndb_password=${DB_PASSWORD}\ndb_name=${DB_NAME}\n\
+      db_port=${DB_PORT}\ndb_server=${DB_SERVER}\ndriver_class_name=${DRIVER_CLASS_NAME}\n\
+      resource_name=${RESOURCE_NAME}\n\n\necho \"####### BIND VARIABLES #######\"\n\
+      echo 'tomcat_install_path'=$tomcat_install_path\necho 'max_active_connections'=$max_active_connections\n\
+      echo 'max_idle_connections'=$max_idle_connections\necho 'max_wait'=$max_wait\n\
+      echo 'remove_abandoned_connections'=$remove_abandoned_connections\necho 'db_username'=$db_username\n\
+      echo 'db_name'=$db_name\necho 'db_port'=$db_port\necho 'db_server'=$db_server\n\
+      echo 'driver_class_name'=$driver_class_name\necho 'resource_name'=$resource_name\n\
+      echo \"##############################\"\n#####\n\n\n## Restart Tomcat Service\
+      \ \n/etc/init.d/tomcat restart\n\necho -e \"\\nDone - Restart Tomcat Service\\\
+      n\""
+    isRebootAfter: false
+    scriptTypeId: "Bash"
+  taskDescriptorRef:
+    id: "START"
+    label: "Start"

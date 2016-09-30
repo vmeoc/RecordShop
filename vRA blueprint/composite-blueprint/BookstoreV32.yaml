@@ -1,0 +1,377 @@
+id: BookstoreV32
+name: Recordshop V3.2
+description: |-
+  Test
+  Bookstore Appli 3 Tiers
+  URL:
+  http://<virtual IP>:8080/recordshop/query.jsp
+status: PUBLISHED
+properties:
+  AppURL:
+    fixed: http://<virtual IP>:8080/recordshop/query.jsp
+    required: false
+    secured: false
+    visible: false
+  __nsx.management_endpoint_name:
+    fixed: vCenter
+    required: false
+    secured: false
+    visible: false
+  __nsx.transport_zone_name:
+    fixed: TZ-showroom
+    required: false
+    secured: false
+    visible: false
+  _archiveDays: 5
+  _leaseDays:
+    default: 1
+    max: 9999999
+    min: 1
+components:
+  Database:
+    type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
+    data:
+      _cluster:
+        default: 1
+        max: 1
+        min: 1
+      action:
+        fixed: LinkedClone
+      allow_storage_policies:
+        fixed: false
+      blueprint_type:
+        fixed: '1'
+      cpu:
+        default: 2
+        max: 2
+        min: 2
+      disks:
+      - capacity: 100
+        custom_properties: null
+        id: 1469698468921
+        initial_location: ''
+        is_clone: true
+        label: Hard disk 1
+        storage_reservation_policy: ''
+        userCreated: false
+        volumeId: 0
+      display_location:
+        fixed: true
+      guest_customization_specification: Linux
+      max_network_adapters: {}
+      max_volumes: {}
+      memory:
+        default: 4096
+        max: 4096
+        min: 4096
+      nics:
+      - address: ''
+        assignment_type: Static
+        id: 0
+        load_balancing: ''
+        network: ${_resource~LabvRA}
+        network_profile: Lab vRA
+      provisioning_workflow:
+        fixed:
+          id: CloneWorkflow
+          label: CloneWorkflow
+      reservation_policy:
+        id: Development
+        label: Development
+      security_groups: []
+      security_tags:
+      - ${_resource~vince_sql_security_profile}
+      source_machine:
+        fixed:
+          id: b36c7d8d-7706-4d2b-8dce-8c786ebdb3bc
+          label: CentOSprVRA7parVinceV3-Lab
+      source_machine_external_snapshot:
+        fixed: 1
+      source_machine_name:
+        fixed: CentOSprVRA7parVinceV3-Lab
+      source_machine_vmsnapshot:
+        fixed:
+          id: '153'
+      storage:
+        default: 100
+        max: 100
+        min: 100
+  Install_vRops_EP_Agent_depuis_Web_Server_1:
+    type: Software.InstallvRopsEPAgentdepuisWebServer
+    dependsOn:
+    - TOMCAT
+    data:
+      host:
+        fixed: ${_resource~LAM-Java}
+  Install_vRops_EP_Agent_depuis_Web_Server_2:
+    type: Software.InstallvRopsEPAgentdepuisWebServer
+    dependsOn:
+    - MYSQL
+    data:
+      host:
+        fixed: ${_resource~Database}
+  LAM-Java:
+    type: Infrastructure.CatalogItem.Machine.Virtual.vSphere
+    data:
+      _cluster:
+        default: 1
+        max: 3
+        min: 1
+      action:
+        fixed: LinkedClone
+      allow_storage_policies:
+        fixed: false
+      blueprint_type:
+        fixed: '1'
+      cpu:
+        default: 2
+        max: 2
+        min: 2
+      disks:
+      - capacity: 100
+        custom_properties: null
+        id: 1469698452970
+        initial_location: ''
+        is_clone: true
+        label: Hard disk 1
+        storage_reservation_policy: ''
+        userCreated: false
+        volumeId: 0
+      display_location:
+        fixed: false
+      guest_customization_specification: Linux
+      machine_prefix:
+        fixed:
+          id: l-vme-app-
+      max_network_adapters: {}
+      max_volumes: {}
+      memory:
+        default: 4096
+        max: 4096
+        min: 4096
+      nics:
+      - address: ''
+        assignment_type: Static
+        id: 0
+        load_balancing: HTTP,HTTPS,TCP
+        network: ${_resource~LabvRA}
+        network_profile: Lab vRA
+      provisioning_workflow:
+        fixed:
+          id: CloneWorkflow
+          label: CloneWorkflow
+      security_groups: []
+      security_tags:
+      - ${_resource~vince_Web_security_profile}
+      source_machine:
+        fixed:
+          id: b36c7d8d-7706-4d2b-8dce-8c786ebdb3bc
+          label: CentOSprVRA7parVinceV3-Lab
+      source_machine_external_snapshot:
+        fixed: 1
+      source_machine_name:
+        fixed: CentOSprVRA7parVinceV3-Lab
+      source_machine_vmsnapshot:
+        fixed:
+          id: '153'
+      storage:
+        default: 100
+        max: 100
+        min: 100
+  LabvRA:
+    type: Infrastructure.Network.Network.Existing
+    data:
+      name:
+        fixed: LabvRA
+      network_profile:
+        fixed: Lab vRA
+  MYSQL:
+    type: Software.MYSQLDATABASEVMwareSamplecopyMariaDB
+    data:
+      BIND_IP:
+        default: ${_resource~Database~ip_address}
+        required: true
+      DB_PORT:
+        default: '3306'
+        required: true
+      DB_ROOT_PASSWORD:
+        default: vmware
+        required: true
+        secured: true
+      DB_ROOT_USERNAME:
+        default: root
+        required: true
+      host:
+        fixed: ${_resource~Database}
+  On-Demand_Load_Balancer_1:
+    type: Infrastructure.Network.LoadBalancer.NSX.OnDemand
+    data:
+      name:
+        fixed: On-Demand_Load_Balancer_1
+      services:
+        fixed:
+        - health_check_interval: 5
+          health_threshold: 5
+          id: HTTP
+          isSelected: true
+          name: HTTP
+          port: 80
+          response_timeout: 5
+          service_URI: ''
+          unhealth_threshold: 10
+        - health_check_interval: 5
+          health_threshold: 5
+          id: HTTPS
+          isSelected: true
+          name: HTTPS
+          port: 443
+          response_timeout: 5
+          service_URI: ''
+          unhealth_threshold: 10
+        - health_check_interval: 5
+          health_threshold: 5
+          id: TCP
+          isSelected: true
+          name: TCP
+          port: 8080
+          response_timeout: 5
+          service_URI: ''
+          unhealth_threshold: 10
+      tier:
+        fixed: ${_resource~LAM-Java}
+      tier_nic_index:
+        fixed: 0
+      vip_network:
+        fixed: ${_resource~LabvRA}
+  RecordShopDB:
+    type: Software.LAMJAVADatabaseExampleVMwareSample
+    data:
+      DB_NAME:
+        default: recordshop
+        required: true
+      DB_PASSWORD:
+        default: vmware
+        required: true
+        secured: true
+      DB_USERNAME:
+        default: recordshop
+        required: true
+      INIT_DB_PASSWORD:
+        default: vmware
+        required: true
+        secured: true
+      INIT_DB_USERNAME:
+        default: root
+        required: true
+      host:
+        fixed: ${_resource~MYSQL}
+  RecordShopWeb:
+    type: Software.DukesBankApp
+    dependsOn:
+    - RecordShopDB
+    data:
+      DB_NAME:
+        fixed: ${RecordShopDB~DB_NAME}
+        required: true
+      DB_PASSWORD:
+        fixed: ${RecordShopDB~DB_PASSWORD}
+        required: true
+      DB_PORT:
+        default: '3306'
+        required: true
+      DB_SERVER:
+        default: ${_resource~Database~ip_address}
+        required: true
+      DB_USERNAME:
+        fixed: ${RecordShopDB~DB_USERNAME}
+        required: true
+      DRIVER_CLASS_NAME:
+        default: com.mysql.jdbc.Driver
+        required: true
+      JDBC_URL:
+        default:
+          url: http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar
+        required: true
+      JSTL_JAR_URL:
+        default:
+          url: http://repo2.maven.org/maven2/javax/servlet/jstl/1.2/jstl-1.2.jar
+        required: true
+      MAX_ACTIVE_CONNECTIONS:
+        default: '10'
+        required: true
+      MAX_IDLE_CONNECTIONS:
+        default: '5'
+        required: true
+      MAX_WAIT:
+        default: '10000'
+        required: true
+      MYSQL_JDBC_URL:
+        default:
+          url: http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar
+        required: true
+      REMOVE_ABANDONED_CONNECTIONS:
+        default: 'true'
+        required: true
+      RESOURCE_NAME:
+        default: RecordShop
+        required: true
+      STANDARD_JAR_URL:
+        default:
+          url: http://repo2.maven.org/maven2/taglibs/standard/1.1.2/standard-1.1.2.jar
+        required: true
+      TOMCAT_INSTALL_PATH:
+        default: /opt/tomcat
+        required: true
+      host:
+        fixed: ${_resource~TOMCAT}
+  TOMCAT:
+    type: Software.TomcatVMwareSampleV2
+    data:
+      CATALINA_OPTS: -Xms512m -Xmx512m
+      JAVA_DOWNLOAD_URL:
+        default: http://download.oracle.com/otn-pub/java/jdk/8u65-b17/jdk-8u65-linux-x64.tar.gz
+        required: false
+      JAVA_INSTALL_PATH:
+        default: /opt
+        required: false
+      TOMCAT_DOWNLOAD_URL:
+        default:
+          url: http://p-vin-ws-01.showroom.local/packages/apache-tomcat-8.0.36.tar.gz
+        required: true
+      TOMCAT_HTTP_PORT:
+        default: '8080'
+        required: true
+      TOMCAT_INSTALL_PATH:
+        default: /opt/tomcat
+        required: true
+      host:
+        fixed: ${_resource~LAM-Java}
+  vince_Web_security_profile:
+    type: Infrastructure.Network.SecurityTag.NSX.Existing
+    data:
+      endpoint:
+        fixed: p-vc-paris01.showroom.local
+      name:
+        fixed: vince_Web_security_profile
+  vince_sql_security_profile:
+    type: Infrastructure.Network.SecurityTag.NSX.Existing
+    data:
+      endpoint:
+        fixed: p-vc-paris01.showroom.local
+      name:
+        fixed: vince_sql_security_profile
+layout:
+  Database: 2,3
+  Install_vRops_EP_Agent_depuis_Web_Server_1: 1,0
+  Install_vRops_EP_Agent_depuis_Web_Server_2: 1,0
+  LAM-Java: 2,2
+  LabvRA: 3,0
+  MYSQL: 0,0
+  On-Demand_Load_Balancer_1: 2,1
+  RecordShopDB: 0,0
+  RecordShopWeb: 0,0
+  TOMCAT: 0,0
+  vince_Web_security_profile: 0,2
+  vince_sql_security_profile: 1,3
+propertyGroups:
+- EBSExtensibility
